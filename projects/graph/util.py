@@ -37,12 +37,12 @@ class Stack():      # LIFO
 
 
 
-s = Stack()
-s.push("First")
-s.push("Next")
-s.push("Last")
-print(f' s is : {s.stack}')   # s is : ['First', 'Next', 'Last']
-print(s.size())    # 3
-s.pop()
-print(f' s is {s.stack}')    # s is ['First', 'Next']
-print(s.size())    # 2
+# s = Stack()
+# s.push("First")
+# s.push("Next")
+# s.push("Last")
+# print(f' s is : {s.stack}')   # s is : ['First', 'Next', 'Last']
+# print(s.size())    # 3
+# s.pop()
+# print(f' s is {s.stack}')    # s is ['First', 'Next']
+# print(s.size())    # 2
