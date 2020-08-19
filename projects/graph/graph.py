@@ -105,7 +105,7 @@ class Graph:
             # print(f' dequeue v is : {v}')
             if v not in visited:         # Check IF NOT visited:   
                 print(v)
-                visited.add(v)
+                visited.add(v)           # Mark as visited
                 # print(f' visited set is {visited} ')  
                 # print(f' v is:  {v}')         # if NOT visited, add to visited set
                 for n in self.get_neighbors(v):    # loop through all neighbors of  v 
@@ -174,8 +174,41 @@ class Graph:
         """
         Return a list containing the shortest path from
         starting_vertex to destination_vertex in
-        breath-first order.
+        breath-first order.    
+                !!!!!   ALWAYS PROVIDES shortest path because it goes by Vertex proximity(immediate adj, next adj, .. etc.)
         """
+        """      FIFO   ir LILO
+        Create a queue
+        Enqueue PATH to starting Vertex
+        Create a set top store visited vertices
+        While the queue is NOT empty:  e.g.   > 0
+            Dequeue the first PATH Vertex
+            Get Vertex from END of PATH
+            Check IF NOT visited:
+                Mark as visited
+                check if vertex is destination_vertex
+                    If TRUE, return path
+                enqueue PATH to ALL of neighbors   
+                make COPY of current path
+                enqueue copy                
+        """
+
+        q = Queue()                         # Create a queue
+        q.enqueue([starting_vertex])            # Enqeue starting at vertex into an array
+        visited = set()                         # Create a set to store visited  
+        while q.size() > 0:                     # While the queue is NOT empty: 
+            path = q.dequeue()                      # Dequeue the first PATH Vertex
+            v = path[-1]                            # Get Vertex from END of PATH
+            if v not in visited:                    # Check IF NOT visited:
+                visited.add(v)                          # Mark as visited
+                if v == destination_vertex:             # check if vertex is destination_vertex
+                    return path                             # If TRUE, return path
+                for n in self.get_neighbors(v):   # enqueue PATH to ALL of neighbors
+                    path_c = path [:]                   # make COPY of current path
+                    path_c.append(n)                    # add neighbor to path
+                    q.enqueue(path_c)                   # enqueue copy
+
+
         pass  # TODO
 
     def dfs(self, starting_vertex, destination_vertex):
@@ -276,7 +309,7 @@ if __name__ == '__main__':
     # Valid BFS path:
     #     [1, 2, 4, 6]
     # '''
-    # print(graph.bfs(1, 6))
+    print(graph.bfs(1, 6))
 
     # '''
     # Valid DFS paths:
