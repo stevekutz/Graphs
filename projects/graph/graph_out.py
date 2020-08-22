@@ -313,7 +313,7 @@ class Graph:
             path_c = path[:]    # copy path
             path_c.append(starting_vertex)
 
-            print(f' path is now {path_c}')
+            print(f' \n path is now {path_c} with visited {visited}')
             if starting_vertex == destination_vertex:         # check if vertex is destination_vertex
                     return path_c                         # If TRUE, return copied path 
 
