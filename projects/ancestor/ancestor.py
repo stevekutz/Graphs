@@ -146,7 +146,7 @@ def earliest_ancestor(ancestors, starting_node):
 # traverse 'up' from child vertex to each immediate neighbor('parent') until no more parents to find
 
 test_ancestors = [(1, 3), (2, 3), (3, 6), (5, 6), (5, 7), (4, 5), (11, 8), (8, 9), (4, 8), (10, 1)]
-earliest_ancestor(test_ancestors, 9)
+earliest_ancestor(test_ancestors, 6)
 graph.show_connected_vertices()
 #   Vertex 1  has edge to vertice(s) : {3}
 #   Vertex 3  has edge to vertice(s) : {6}
